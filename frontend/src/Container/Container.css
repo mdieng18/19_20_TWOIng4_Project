@@ -1,0 +1,27 @@
+h1{
+    flex:5;
+}
+
+.wrapper{
+    display:grid;
+    border:2px;
+    border-color:orangered;
+    border-radius: 30px;
+    
+    grid-template-columns: 1fr 1fr;
+    padding:5%;
+    
+}
+.chart{
+    border-color :rebeccapurple;
+    border: 1px;
+    border-radius:10px;
+    margin:10px;
+    padding: 10px;
+    border-style:solid;
+}
+.main{
+
+    border-style: solid;
+
+}
