@@ -2,6 +2,19 @@ h1{
     flex:5;
 }
 
+
+.adminBlock{
+    
+    display :block;
+    margin-left: 35%;
+    margin-right:35%; 
+    margin-top:20px;
+    padding :1%;
+    text-align: center;
+    
+    border:2px;
+    
+  }
 .wrapper{
     display:grid;
     border:2px;

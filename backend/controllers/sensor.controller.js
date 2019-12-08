@@ -2,7 +2,7 @@ const Sensor = require('../models/sensor.model.js');
 
 // Create and Save a new Sensor
 exports.create = (req, res) => {
-    console.log(req.body)
+    
   // Validate request
   if (!req.body.creationDate) {
     
@@ -36,8 +36,7 @@ exports.create = (req, res) => {
 
 // Retrieve and return all Sensors from the database.
 exports.findAll = (req, res) => {
-    console.log(req.body);
-    console.log(res.body);
+    
 
   Sensor.find()
     .then(sensors => {

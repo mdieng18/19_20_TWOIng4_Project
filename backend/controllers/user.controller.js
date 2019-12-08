@@ -2,7 +2,7 @@ const User = require('../models/user.model.js');
 
 // Create and Save a new User
 exports.create = (req, res) => {
-    console.log(req.body)
+    
   // Validate request
   if (!req.body.location) {
     
@@ -36,8 +36,7 @@ exports.create = (req, res) => {
 
 // Retrieve and return all Users from the database.
 exports.findAll = (req, res) => {
-    console.log(req.body);
-    console.log(res.body);
+    
 
   User.find()
     .then(users => {

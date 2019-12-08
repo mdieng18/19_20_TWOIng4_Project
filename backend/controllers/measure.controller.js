@@ -2,12 +2,10 @@ const Measure = require('../models/measure.model.js');
 
 // Create and Save a new User
 exports.create = (req, res) => {
-    console.log(req.body)
   // Validate request
   if (!req.body.type) {
-    
     return res.status(400).send({
-      message: 'type can not be empty'
+      message: "type can not be empty"
     });
   }
 
@@ -15,8 +13,8 @@ exports.create = (req, res) => {
   const measure = new Measure({
     type: req.body.type,
     creationDate: req.body.creationDate,
-    sensorId:req.body.sensorId,
-    value:req.body.value 
+    sensorId: req.body.sensorId,
+    value: req.body.value
   });
 
   // Save User in the database
@@ -30,23 +28,21 @@ exports.create = (req, res) => {
       // In case of error during insertion of a new user in database we send an
       // appropriate message
       res.status(500).send({
-        message: err.message || 'Some error occurred while creating the Measure.'
+        message:
+          err.message || "Some error occurred while creating the Measure."
       });
     });
 };
 
-// Retrieve and return all Users from the database.
+// Retrieve and return all measures by type
 exports.findAll = (req, res) => {
-    console.log(req.body);
-    console.log(res.body);
-
-  Measure.find()
+  Measure.find({ type: req.params.type })
     .then(measures => {
       res.send(measures);
     })
     .catch(err => {
       res.status(500).send({
-        message: err.message || 'Some error occurred while retrieving measures.'
+        message: err.message || "Some error occurred while retrieving measures."
       });
     });
 };
@@ -57,19 +53,19 @@ exports.findOne = (req, res) => {
     .then(measure => {
       if (!measure) {
         return res.status(404).send({
-          message: 'Measure not found with id ' + req.params.measureId
+          message: "Measure not found with id " + req.params.measureId
         });
       }
       res.send(measure);
     })
     .catch(err => {
-      if (err.kind === 'ObjectId') {
+      if (err.kind === "ObjectId") {
         return res.status(404).send({
-          message: 'Measure not found with id ' + req.params.measureId
+          message: "Measure not found with id " + req.params.measureId
         });
       }
       return res.status(500).send({
-        message: 'Error retrieving measure with id ' + req.params.measureId
+        message: "Error retrieving measure with id " + req.params.measureId
       });
     });
 };
